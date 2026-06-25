@@ -7,8 +7,8 @@ import (
 
 func Health(w http.ResponseWriter, r *http.Request) {
 
-	response.JSON(w, http.StatusOK, map[string]string {
-		"status": "OK",
+	response.Success(w, http.StatusOK, "Service is healthy", map[string]string{
+		"status":  "OK",
 		"service": "ExpenseFlow",
 		"version": "0.1.0",
 	})

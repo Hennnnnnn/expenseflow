@@ -9,6 +9,7 @@ import (
 	"github.com/Hennnnnnn/expenseflow/internal/logger"
 	"github.com/Hennnnnnn/expenseflow/internal/database"
 	"github.com/Hennnnnnn/expenseflow/internal/service"
+	"github.com/Hennnnnnn/expenseflow/internal/transport/http/handlers"
 	httptransport "github.com/Hennnnnnn/expenseflow/internal/transport/http"
 )
 
@@ -36,10 +37,10 @@ func main() {
 	application.DB = db
 
 	transactionService := service.NewTransactionService(db);
-
+	transactionHandler := handlers.NewTransactionHandler(transactionService)
 	_ = transactionService
 
-	router := httptransport.NewRouter(logg)
+	router := httptransport.NewRouter(logg, transactionHandler)
 	
 	log.Println("🚀 ExpenseFlow API starting on :" + cfg.Port)
 

@@ -11,7 +11,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func NewRouter(logger *slog.Logger) http.Handler {
+func NewRouter(logger *slog.Logger, transactionHandler *handlers.TransactionHandler) http.Handler {
 
 	r := chi.NewRouter()
 
@@ -20,7 +20,8 @@ func NewRouter(logger *slog.Logger) http.Handler {
 	r.Use(middleware.Recovery(logger))
 
 	r.Get("/health", handlers.Health)
-
+	r.Post("/transactions", transactionHandler.Create)
+	r.Get("/transactions", transactionHandler.GetAll)
 	return r
 
 }
