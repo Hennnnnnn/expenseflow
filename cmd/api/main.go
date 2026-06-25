@@ -28,6 +28,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	if err := database.AutoMigrate(db); err != nil {
+		log.Fatal(err)
+	}
+
 	application.DB = db
 
 	router := httptransport.NewRouter(logg)
