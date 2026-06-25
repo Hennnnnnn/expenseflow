@@ -34,6 +34,9 @@ logs/
 *.db
 *.sqlite
 *.sqlite3
+data/*.db
+data/*.db-shm
+data/*.db-wal
 
 # OS
 

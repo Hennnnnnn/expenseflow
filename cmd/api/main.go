@@ -7,6 +7,7 @@ import (
 	"github.com/Hennnnnnn/expenseflow/internal/app"
 	"github.com/Hennnnnnn/expenseflow/internal/config"
 	"github.com/Hennnnnnn/expenseflow/internal/logger"
+	"github.com/Hennnnnnn/expenseflow/internal/database"
 	httptransport "github.com/Hennnnnnn/expenseflow/internal/transport/http"
 )
 
@@ -21,7 +22,13 @@ func main() {
 		Logger: logg,
 	}
 
-	_ = application
+	db, err := database.NewSQLite()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	application.DB = db
 
 	router := httptransport.NewRouter(logg)
 	
