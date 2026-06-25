@@ -1,6 +1,7 @@
 package email
 
 import (
+	"github.com/Hennnnnnn/expenseflow/internal/email/filter"
 	"github.com/Hennnnnnn/expenseflow/internal/email/imap"
 )
 
@@ -37,4 +38,37 @@ func (s *Service) PrintLatest(limit int) error {
 	}
 
 	return nil
+}
+
+func (s *Service) ReadBCAEmails(limit int) ([]imap.Message, error) {
+
+	messages, err := s.ReadLatest(limit)
+	if err != nil {
+		return nil, err
+	}
+
+	result := make([]imap.Message, 0)
+
+	for _, message := range messages {
+
+		println("--------------------------")
+		println("Sender :", message.From)
+		println("Subject:", message.Subject)
+
+		if !filter.IsBCA(message.From) {
+			println("❌ Sender rejected")
+			continue
+		}
+
+		if !filter.IsTransaction(message.Subject) {
+			println("❌ Subject rejected")
+			continue
+		}
+
+		println("✅ Accepted")
+
+		result = append(result, message)
+	}
+
+	return result, nil
 }

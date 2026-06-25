@@ -57,7 +57,7 @@ func main() {
 
 	emailService := email.New(imapClient)
 
-	messages, err := emailService.ReadLatest(5)
+	messages, err := emailService.ReadBCAEmails(30)
 
 	if len(messages) > 0 {
 
