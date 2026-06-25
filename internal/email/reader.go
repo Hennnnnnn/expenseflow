@@ -7,5 +7,5 @@ type Reader interface {
 	Close() error
 
 	ReadLatest(limit int) ([]imap.Message, error)
-	ReadBody(uid uint32) (*imap.Message, error)
+	ReadBody(seqNum uint32) (*imap.Message, error)
 }

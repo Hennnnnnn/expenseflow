@@ -48,7 +48,7 @@ func (c *Client) ReadLatest(limit int) ([]Message, error) {
 		}
 
 		result = append(result, Message{
-			UID:     uint32(msg.SeqNum),
+			SeqNum:  uint32(msg.SeqNum),
 			Subject: msg.Envelope.Subject,
 			From:    from,
 			Date:    msg.Envelope.Date,

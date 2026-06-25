@@ -57,26 +57,28 @@ func main() {
 
 	emailService := email.New(imapClient)
 
-	messages, err := emailService.ReadBCAEmails(30)
-
-	data, err := emailService.Parse(&messages[0])
-
+	messages, err := emailService.ReadBCAEmails(999999)
 	if err != nil {
-		log.Println(err)
-	} else {
-		log.Println(data)
+		log.Fatal(err)
 	}
 
-	if len(messages) > 0 {
+	if len(messages) == 0 {
+		log.Println("No BCA transaction emails found.")
+	} else {
+		data, err := emailService.Parse(&messages[0])
+		if err != nil {
+			log.Println(err)
+		} else {
+			log.Printf("%+v\n", data)
+		}
 
-		body, err := emailService.ReadBody(messages[0].UID)
-
+		body, err := emailService.ReadBody(messages[0].SeqNum)
 		if err != nil {
 			log.Fatal(err)
 		}
 
-		log.Println("========================")
-		log.Println(body.Header)
+		log.Println("==========================")
+		log.Println(body.TextBody)
 	}
 
 	if err != nil {
