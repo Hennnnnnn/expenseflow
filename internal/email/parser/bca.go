@@ -32,5 +32,17 @@ func (p *BCAParser) CanParse(message *imap.Message) bool {
 
 func (p *BCAParser) Parse(message *imap.Message) (*TransactionData, error) {
 
-	return &TransactionData{}, nil
+	if message == nil {
+		return nil, ErrInvalidEmail
+	}
+
+	body := Normalize(message.TextBody)
+
+	if body == "" {
+		return nil, ErrInvalidEmail
+	}
+
+	return &TransactionData{
+		Description: body,
+	}, nil
 }
