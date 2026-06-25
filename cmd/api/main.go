@@ -8,6 +8,7 @@ import (
 	"github.com/Hennnnnnn/expenseflow/internal/config"
 	"github.com/Hennnnnnn/expenseflow/internal/logger"
 	"github.com/Hennnnnnn/expenseflow/internal/database"
+	"github.com/Hennnnnnn/expenseflow/internal/service"
 	httptransport "github.com/Hennnnnnn/expenseflow/internal/transport/http"
 )
 
@@ -33,6 +34,10 @@ func main() {
 	}
 
 	application.DB = db
+
+	transactionService := service.NewTransactionService(db);
+
+	_ = transactionService
 
 	router := httptransport.NewRouter(logg)
 	
