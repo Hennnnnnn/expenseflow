@@ -10,6 +10,8 @@ import (
 	"github.com/Hennnnnnn/expenseflow/internal/database"
 	"github.com/Hennnnnnn/expenseflow/internal/service"
 	"github.com/Hennnnnnn/expenseflow/internal/transport/http/handlers"
+	"github.com/Hennnnnnn/expenseflow/internal/email/imap"
+	
 	httptransport "github.com/Hennnnnnn/expenseflow/internal/transport/http"
 )
 
@@ -17,6 +19,16 @@ func main() {
 
 	cfg := config.Load()
 
+	imapClient := imap.New(cfg)
+
+	if err := imapClient.Connect(); err != nil {
+		log.Fatal(err)
+	}
+
+	defer imapClient.Close()
+
+	log.Println("✅ Connected to Gmail IMAP")
+	
 	logg := logger.New()
 
 	application := &app.App{
