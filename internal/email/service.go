@@ -3,15 +3,21 @@ package email
 import (
 	"github.com/Hennnnnnn/expenseflow/internal/email/filter"
 	"github.com/Hennnnnnn/expenseflow/internal/email/imap"
+	"github.com/Hennnnnnn/expenseflow/internal/email/parser"
 )
 
 type Service struct {
 	reader Reader
+
+	parsers []parser.Parser
 }
 
 func New(reader Reader) *Service {
 	return &Service{
 		reader: reader,
+		parsers: []parser.Parser{
+			parser.NewBCAParser(),
+		},
 	}
 }
 
