@@ -58,6 +58,19 @@ func main() {
 	emailService := email.New(imapClient)
 
 	messages, err := emailService.ReadLatest(5)
+
+	if len(messages) > 0 {
+
+		body, err := emailService.ReadBody(messages[0].UID)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		log.Println("========================")
+		log.Println(body.Header)
+	}
+
 	if err != nil {
 		log.Fatal(err)
 	}

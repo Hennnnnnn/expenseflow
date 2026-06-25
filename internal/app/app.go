@@ -13,5 +13,5 @@ type App struct {
 	Logger *slog.Logger
 	DB     *gorm.DB
 
-	EmailService *email.EmailService
+	EmailService *email.Service
 }
