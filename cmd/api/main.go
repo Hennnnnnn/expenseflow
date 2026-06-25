@@ -7,6 +7,7 @@ import (
 	"github.com/Hennnnnnn/expenseflow/internal/app"
 	"github.com/Hennnnnnn/expenseflow/internal/config"
 	"github.com/Hennnnnnn/expenseflow/internal/database"
+	"github.com/Hennnnnnn/expenseflow/internal/email"
 	"github.com/Hennnnnnn/expenseflow/internal/email/imap"
 	"github.com/Hennnnnnn/expenseflow/internal/logger"
 	"github.com/Hennnnnnn/expenseflow/internal/service"
@@ -16,30 +17,11 @@ import (
 
 func main() {
 
+	// ==========================
+	// Configuration
+	// ==========================
+
 	cfg := config.Load()
-
-	imapClient := imap.New(cfg)
-
-	emailService := service.New(imapClient)
-
-	_ = emailService
-
-	if err := imapClient.Connect(); err != nil {
-		log.Fatal(err)
-	}
-
-	defer imapClient.Close()
-
-	mailbox, err := imapClient.SelectInbox()
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Printf("Inbox has %d messages\n", mailbox.NumMessages)
-
-	log.Println("✅ Connected to Gmail IMAP")
-
 	logg := logger.New()
 
 	application := &app.App{
@@ -47,8 +29,11 @@ func main() {
 		Logger: logg,
 	}
 
-	db, err := database.NewSQLite()
+	// ==========================
+	// Database
+	// ==========================
 
+	db, err := database.NewSQLite()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -59,11 +44,46 @@ func main() {
 
 	application.DB = db
 
+	// ==========================
+	// Email
+	// ==========================
+
+	imapClient := imap.New(cfg)
+
+	if err := imapClient.Connect(); err != nil {
+		log.Fatal(err)
+	}
+	defer imapClient.Close()
+
+	emailService := email.New(imapClient)
+
+	messages, err := emailService.ReadLatest(5)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	log.Println("========== Latest Emails ==========")
+
+	for _, mail := range messages {
+		log.Printf(
+			"\nSubject : %s\nFrom    : %s\nDate    : %s\n",
+			mail.Subject,
+			mail.From,
+			mail.Date,
+		)
+	}
+
+	// ==========================
+	// HTTP
+	// ==========================
+
 	transactionService := service.NewTransactionService(db)
 	transactionHandler := handlers.NewTransactionHandler(transactionService)
-	_ = transactionService
 
-	router := httptransport.NewRouter(logg, transactionHandler)
+	router := httptransport.NewRouter(
+		logg,
+		transactionHandler,
+	)
 
 	log.Println("🚀 ExpenseFlow API starting on :" + cfg.Port)
 

@@ -7,4 +7,7 @@ type Message struct {
 	Subject string
 	From    string
 	Date    time.Time
+
+	TextBody string
+	HTMLBody string
 }

@@ -53,6 +53,6 @@ func (c *Client) Close() error {
 	return c.client.Logout().Wait()
 }
 
-func (c *Client) ReadLatest(limit int) ([]Message, error) {
-	return nil, nil
-}
+// func (c *Client) ReadLatest(limit int) ([]Message, error) {
+// 	return nil, nil
+// }
