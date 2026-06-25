@@ -56,8 +56,9 @@ func main() {
 	defer imapClient.Close()
 
 	emailService := email.New(imapClient)
+	emailHandler := handlers.NewEmailHandler(emailService)
 
-	messages, err := emailService.ReadBCAEmails(999999)
+	messages, err := emailService.ReadLatest(20)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -106,6 +107,7 @@ func main() {
 	router := httptransport.NewRouter(
 		logg,
 		transactionHandler,
+		emailHandler,
 	)
 
 	log.Println("🚀 ExpenseFlow API starting on :" + cfg.Port)

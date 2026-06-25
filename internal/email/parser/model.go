@@ -3,17 +3,15 @@ package parser
 import "time"
 
 type TransactionData struct {
-	Merchant string
-
 	Amount float64
+
+	Merchant string
 
 	TransactionDate time.Time
 
-	TransactionType string
-
 	ReferenceNumber string
 
-	CardNumber string
-
 	Description string
+
+	Category string
 }

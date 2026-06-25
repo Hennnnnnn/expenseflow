@@ -1,6 +1,8 @@
 package imap
 
 import (
+	"fmt"
+
 	goimap "github.com/emersion/go-imap/v2"
 )
 
@@ -13,27 +15,37 @@ func (c *Client) ReadLatest(limit int) ([]Message, error) {
 
 	total := selected.NumMessages
 
+	fmt.Printf("Total messages in inbox: %d\n", total)
+
 	if total == 0 {
 		return []Message{}, nil
 	}
 
-	start := total - uint32(limit) + 1
+	var start uint32 = 1
 
-	if total < uint32(limit) {
-		start = 1
+	if total > uint32(limit) {
+		start = total - uint32(limit) + 1
 	}
 
-	seqSet := goimap.SeqSetNum(start, total)
+	seqSet := goimap.SeqSet{
+		goimap.SeqRange{
+			Start: start,
+			Stop:  total,
+		},
+	}
 
 	fetchOptions := &goimap.FetchOptions{
 		Envelope: true,
 	}
 
-	fetched, err := c.client.Fetch(seqSet, fetchOptions).Collect()
+	fmt.Println("Start :", start)
 
+	fetched, err := c.client.Fetch(seqSet, fetchOptions).Collect()
+	fmt.Printf("Fetched messages: %d\n", len(fetched))
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("End   :", total)
 
 	var result []Message
 

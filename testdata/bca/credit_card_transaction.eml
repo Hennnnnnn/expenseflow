@@ -1,0 +1,616 @@
+Delivered-To: hendrijonathan05@gmail.com
+Received: by 2002:a05:6a11:b715:b0:6c6:4871:8daf with SMTP id mb21csp1348700pxc;
+        Thu, 25 Jun 2026 05:32:58 -0700 (PDT)
+X-Received: by 2002:a05:6a00:7612:b0:845:b5c3:4c1b with SMTP id d2e1a72fcca58-845b5c3530fmr1937746b3a.44.1782390778236;
+        Thu, 25 Jun 2026 05:32:58 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1782390778; cv=none;
+        d=google.com; s=arc-20260327;
+        b=QDDLGuG4IK7l24GeqtUVJEas0KWkzBBDyqZIxOqX29H+JUAOKh0HQis+n0EprzLy1U
+         drrleKrWmLt0N0AWBPB9x5Y+oOQd7D2CRtHLMPo5vlTRlrQwo16+pefVHpupTOVJeecY
+         LSsF2lFhK7ok5WM5rJd0sptpfsoevhRnMil08jHtbbItrvW89+EIbb2FRNrz8Tv1ATrE
+         JTDJm9ffBMcnENUU4dp8Xj7EYLSGn4VdXAYC4TnRVRmTN0v2HfkknMjSaZEuIxnkfZ3Z
+         fRyygiwckvefcpYt0f5cLuOhG2mwV+P7gWHx2xQzP+M2TiftmrX9wlnZtMgSKUNipio4
+         OZDg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=dkim-signature:mime-version:subject:message-id:to:from:date;
+        bh=tEcOa7No6BGKXw7Yu+owZgGm1tYkR/bHHJIAG2RsenQ=;
+        fh=sURw9MiY1lfIGHBOavEzq7OwHSid3gYOvePSDqiFu9o=;
+        b=Gk6z5mbHkFteeV8QFztc9s0peNoVstBvf3Itzw0zKgArkgZaDj0nw3adwO6o4EqYjz
+         XB8fa/I8X+t2SGX5SlByoyAhCU4W1N2LjBoa5AaU5syWKlagUQWhKoDdMNwKmYDhl/1v
+         dWqHcd7uE4VWimf6VBpVy4+PKrU3CT+vzblixllvOQnkP5jgrs4wEy6UUiHal5uIzrtK
+         orWNG6zw3oLZD/0fsoPzgKln8OidxtqlOExOWQJczmXyOc2pEPOSgru1LTHzX8IQJaSf
+         wswOHIqM9w9Bf1uupmFVSibHsdRZPXk3YFpd/ZIn2rMS5NzK9NO0HlQ8Y98FaK43ErIV
+         Bf1Q==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@klikbca.com header.s=trans6 header.b=Rsvx2Zmq;
+       spf=pass (google.com: domain of kartukreditbca@klikbca.com designates 202.6.215.37 as permitted sender) smtp.mailfrom=KartuKreditBCA@klikbca.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=klikbca.com
+Return-Path: <KartuKreditBCA@klikbca.com>
+Received: from smtp5.klikbca.com (smtp5.klikbca.com. [202.6.215.37])
+        by mx.google.com with ESMTPS id d2e1a72fcca58-845a4127b17si9297705b3a.159.2026.06.25.05.32.57
+        for <HENDRIJONATHAN05@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 25 Jun 2026 05:32:58 -0700 (PDT)
+Received-SPF: pass (google.com: domain of kartukreditbca@klikbca.com designates 202.6.215.37 as permitted sender) client-ip=202.6.215.37;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@klikbca.com header.s=trans6 header.b=Rsvx2Zmq;
+       spf=pass (google.com: domain of kartukreditbca@klikbca.com designates 202.6.215.37 as permitted sender) smtp.mailfrom=KartuKreditBCA@klikbca.com;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=klikbca.com
+Date: Thu, 25 Jun 2026 19:32:56 +0700 (WIB)
+From: KartuKreditBCA@klikbca.com
+To: HENDRIJONATHAN05@GMAIL.COM
+Message-ID: <497818846.1516031.1782390776848@oln1eairest02>
+Subject: Credit Card Transaction Notification
+MIME-Version: 1.0
+Content-Type: multipart/related; 
+	boundary="----=_Part_1516030_78581807.1782390776845"
+X-FEAS-BEC-Info: WlpIGw0aAQkEARIJHAEHBlJSCRoLAAEeDUhZUEhYSFhIWUhZXkguLVxYWC48UVpZWFhYWVpfSFpeSCMJGhwdIxoNDAEcKispKAMEAQMKCwlGCwcFSFlIWl5IIC0mLDoh
+ IicmKTwgKSZYXSgPBQkBBEYLBwVIWEhaSFlaSFlYRlleRl1ZRllbX0hQSFhIWEhZSFhIWEhYSFpeSCAtJiw6ISInJik8ICkmWF0oDwUJAQRGCwcFSFg=
+X-FEAS-Client-IP: 10.16.51.137
+X-FE-Policy-ID: 17:17:0:SYSTEM
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; d=klikbca.com; s=trans6; c=relaxed/relaxed;
+ h=date:from:to:message-id:subject:mime-version:content-type;
+ bh=tEcOa7No6BGKXw7Yu+owZgGm1tYkR/bHHJIAG2RsenQ=;
+ b=Rsvx2ZmqN3pGEMhEgt2juk2/agoMIDqBglkoHm9Y1rrWNNtX318u5j7tKYHypv/zMkSjpqe7SxIQ
+	beLV5KYb1D9TsbPESelQuQHFGSAmR7lCXgURXRC8PWr26kTb/x5hrcXIVFL019Rw1OdFg/fIHly5
+	8y6DjDzF8hUhQPR4J2ioWh/XsJRlKWZRSRN4Nmt+BQQECBsQsbCvUn4DuLxggQiITW5YOvQ5xe6E
+	sbhTLPv43lnk+ui1a+BYA0n5cJTmy8zl9ExzvG5X805elxv5YCBX8d0DaEJNuIs+as/aNfSr22Do
+	B3FtKh+XshWrc2iXYN8FuvyLCkwnsF18lQL91w==
+
+------=_Part_1516030_78581807.1782390776845
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_1516029_1654344631.1782390776845"
+
+------=_Part_1516029_1654344631.1782390776845
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+-
+------=_Part_1516029_1654344631.1782390776845
+Content-Type: text/html;charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir=3D"ltr" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns=
+=3D"http://www.w3.org/1999/xhtml" lang=3D"id">
+ <head>
+  <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D=
+1">
+  <meta charset=3D"UTF-8">
+  <meta name=3D"x-apple-disable-message-reformatting">
+  <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+  <meta name=3D"format-detection" content=3D"telephone=3Dno">
+  <title>T - Notifikasi Transaksi Kartu Kredit - Berhasil (Apr 25)</title><=
+!--[if (mso 16)]>
+    <style type=3D"text/css">
+    a {text-decoration: none;}
+    </style>
+    <![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important;=
+ }</style><![endif]--><!--[if gte mso 9]>
+<noscript>
+         <xml>
+           <o:OfficeDocumentSettings>
+           <o:AllowPNG></o:AllowPNG>
+           <o:PixelsPerInch>96</o:PixelsPerInch>
+           </o:OfficeDocumentSettings>
+         </xml>
+      </noscript>
+<![endif]--><!--[if mso]><xml>
+    <w:WordDocument xmlns:w=3D"urn:schemas-microsoft-com:office:word">
+      <w:DontUseAdvancedTypographyReadingMail></w:DontUseAdvancedTypography=
+ReadingMail>
+    </w:WordDocument>
+    </xml><![endif]-->
+  <style type=3D"text/css">.rollover:hover .rollover-first {
+  max-height:0px!important;
+  display:none!important;
+}
+.rollover:hover .rollover-second {
+  max-height:none!important;
+  display:block!important;
+}
+.rollover span {
+  font-size:0px;
+}
+u + .body img ~ div div {
+  display:none;
+}
+#outlook a {
+  padding:0;
+}
+span.MsoHyperlink,
+span.MsoHyperlinkFollowed {
+  color:inherit;
+  mso-style-priority:99;
+}
+a.t {
+  mso-style-priority:100!important;
+  text-decoration:none!important;
+}
+a[x-apple-data-detectors],
+#MessageViewBody a {
+  color:inherit!important;
+  text-decoration:none!important;
+  font-size:inherit!important;
+  font-family:inherit!important;
+  font-weight:inherit!important;
+  line-height:inherit!important;
+}
+.j {
+  display:none;
+  float:left;
+  overflow:hidden;
+  width:0;
+  max-height:0;
+  line-height:0;
+  mso-hide:all;
+}
+.x:hover {
+  border-color:#23c8fe #23c8fe #23c8fe #23c8fe!important;
+  background:#23c8fe!important;
+}
+.x:hover a.t,
+.x:hover button.t {
+  background:#23c8fe!important;
+}
+@media only screen and (max-width:600px) {.bj { padding-top:10px!important =
+} .bi { padding-bottom:0px!important }  *[class=3D"gmail-fix"] { display:no=
+ne!important } p, a { line-height:150%!important } h1, h1 a { line-height:1=
+20%!important } h2, h2 a { line-height:120%!important } h3, h3 a { line-hei=
+ght:120%!important } h4, h4 a { line-height:120%!important } h5, h5 a { lin=
+e-height:120%!important } h6, h6 a { line-height:120%!important }  .bf p { =
+} .be p { }  h1 { font-size:14px!important; text-align:center } h2 { font-s=
+ize:14px!important; text-align:center } h3 { font-size:14px!important; text=
+-align:center } h4 { font-size:24px!important; text-align:left } h5 { font-=
+size:20px!important; text-align:left } h6 { font-size:16px!important; text-=
+align:left }         .bf p, .bf a { font-size:14px!important } .be p, .be a=
+ { font-size:12px!important }       .z .rollover:hover .rollover-second, .b=
+a .rollover:hover .rollover-second, .bb .rollover:hover .rollover-second { =
+display:inline!important }        .m table, .n table, .o table, .m, .o, .n =
+{ width:100%!important; max-width:600px!important } .adapt-img { width:100%=
+!important; height:auto!important }        .h-auto { height:auto!important =
+} .img-6763 { height:40px!important }  .c .d.e, .c .d.e * { font-size:14px!=
+important; line-height:150%!important } .f .d.e, .f .d.e * { font-size:14px=
+!important; line-height:150%!important }  .c .b, .c .b * { font-size:18px!i=
+mportant; line-height:150%!important } .a .b, .a .b * { font-size:18px!impo=
+rtant; line-height:150%!important } }
+@media screen and (max-width:384px) {.mail-message-content { width:414px!im=
+portant } }</style>
+ </head>
+ <body class=3D"body" style=3D"width:100%;height:100%;-webkit-text-size-adj=
+ust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
+  <div dir=3D"ltr" class=3D"es-wrapper-color" lang=3D"id" style=3D"backgrou=
+nd-color:#F6F6F6"><!--[if gte mso 9]>
+=09=09=09<v:background xmlns:v=3D"urn:schemas-microsoft-com:vml" fill=3D"t"=
+>
+=09=09=09=09<v:fill type=3D"tile" color=3D"#f6f6f6"></v:fill>
+=09=09=09</v:background>
+=09=09<![endif]-->
+   <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0" class=3D"es-wr=
+apper" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:c=
+ollapse;border-spacing:0px;padding:0;Margin:0;width:100%;height:100%;backgr=
+ound-repeat:repeat;background-position:center top;background-color:#F6F6F6"=
+>
+     <tr style=3D"border-collapse:collapse">
+      <td valign=3D"top" style=3D"padding:0;Margin:0">
+       <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center" class=3D=
+"n" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:coll=
+apse;border-spacing:0px;width:100%;table-layout:fixed !important;background=
+-color:transparent;background-repeat:repeat;background-position:center top"=
+>
+         <tr style=3D"border-collapse:collapse">
+          <td align=3D"center" style=3D"padding:0;Margin:0">
+           <table bgcolor=3D"#ffffff" align=3D"center" cellspacing=3D"0" ce=
+llpadding=3D"0" class=3D"bg" style=3D"mso-table-lspace:0pt;mso-table-rspace=
+:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;w=
+idth:600px">
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" bgcolor=3D"#ffffff" style=3D"Margin:0;padd=
+ing-top:20px;padding-right:20px;padding-bottom:15px;padding-left:20px;backg=
+round-color:#ffffff">
+               <table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td valign=3D"top" align=3D"center" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" style=3D"padding:0;Margin:0;font-s=
+ize:0px"><img width=3D"90" src=3D"https://pustaka.bca.co.id/images/e-info-2=
+024/20240529-image-logo-bca.png" alt=3D"" style=3D"display:block;font-size:=
+14px;border:0;outline:none;text-decoration:none" height=3D"30"></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+           </table></td>
+         </tr>
+       </table>
+       <table cellspacing=3D"0" cellpadding=3D"0" align=3D"center" class=3D=
+"m" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:coll=
+apse;border-spacing:0px;width:100%;table-layout:fixed !important">
+         <tr style=3D"border-collapse:collapse">
+          <td align=3D"center" style=3D"padding:0;Margin:0">
+           <table align=3D"center" cellspacing=3D"0" cellpadding=3D"0" bgco=
+lor=3D"#ffffff" class=3D"bf" style=3D"mso-table-lspace:0pt;mso-table-rspace=
+:0pt;border-collapse:collapse;border-spacing:0px;background-color:#FFFFFF;w=
+idth:600px">
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"padding:0;Margin:0">
+               <table cellpadding=3D"0" width=3D"100%" cellspacing=3D"0" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td valign=3D"top" align=3D"center" style=3D"padding:0;Ma=
+rgin:0;width:600px">
+                   <table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"center" style=3D"padding:0;Margin:0;font=
+-size:0"><img alt=3D"" width=3D"600" src=3D"https://www.bca.co.id/-/media/I=
+mages/e-info2023/2023-notif-slice1.jpg" class=3D"adapt-img" height=3D"230" =
+style=3D"display:block;font-size:14px;border:0;outline:none;text-decoration=
+:none"></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-right:20px;paddi=
+ng-left:20px;padding-top:15px;padding-bottom:5px">
+               <table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td align=3D"center" valign=3D"top" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellpadding=3D"0" width=3D"100%" cellspacing=3D"0=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" class=3D"f" style=3D"padding:0;Mar=
+gin:0"><p class=3D"d e" style=3D"Margin:0;mso-line-height-rule:exactly;font=
+-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:27px;let=
+ter-spacing:0;color:#333333;font-size:18px">Yth. Pemegang Kartu Kredit BCA,=
+</p></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-right:20px;paddi=
+ng-left:20px;padding-top:10px;padding-bottom:10px">
+               <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td align=3D"center" valign=3D"top" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" class=3D"a" style=3D"padding:0;Mar=
+gin:0"><p class=3D"b" style=3D"Margin:0;mso-line-height-rule:exactly;font-f=
+amily:arial, 'helvetica neue', helvetica, sans-serif;line-height:27px;lette=
+r-spacing:0;color:#333333;font-size:18px">Terima kasih telah bertransaksi m=
+enggunakan Kartu Kredit BCA:</p></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-right:20px;paddi=
+ng-left:20px;padding-bottom:10px;padding-top:5px">
+               <table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td valign=3D"top" align=3D"center" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" class=3D"c" style=3D"padding:0;Mar=
+gin:0">
+                       <table cellspacing=3D"0" cellpadding=3D"20" class=3D=
+"es-table cke_show_border d e" style=3D"mso-table-lspace:0pt;mso-table-rspa=
+ce:0pt;border-collapse:collapse;border-spacing:0px;width:500px">
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">Nomor Customer</td>
+                          <td style=3D"padding:0;Margin:0;color:#333333;fon=
+t-size:18px;line-height:36px;font-family:arial, 'helvetica neue', helvetica=
+, sans-serif">:&nbsp;</td>
+                          <td style=3D"padding:0;Margin:0;font-size:18px;li=
+ne-height:36px;font-family:arial, 'helvetica neue', helvetica, sans-serif;c=
+olor:#333333"><span>0000000023454476</td>
+                         </tr>
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">Nomor Kartu</td>
+                          <td style=3D"padding:0;Margin:0;color:#333333;fon=
+t-size:18px;line-height:36px;font-family:arial, 'helvetica neue', helvetica=
+, sans-serif">:&nbsp;</td>
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px"><span>540912XXXX7640</td>
+                         </tr>
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;font-size:18px;li=
+ne-height:36px;font-family:arial, 'helvetica neue', helvetica, sans-serif;c=
+olor:#333333">Merchant / ATM</td>
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">:&nbsp;</td>
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px"><span>UKI MATCHA PURI</td>
+                         </tr>
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px">Jenis Transaksi</td>
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">:&nbsp;</td>
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px"><span>DOMESTIK</td>
+                         </tr>
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">Otentikasi</td>
+                          <td style=3D"padding:0;Margin:0;font-size:18px;li=
+ne-height:36px;font-family:arial, 'helvetica neue', helvetica, sans-serif;c=
+olor:#333333">:&nbsp;</td>
+                          <td align=3D"left" class=3D"b" style=3D"padding:0=
+;Margin:0;font-size:18px;line-height:36px;font-family:arial, 'helvetica neu=
+e', helvetica, sans-serif;color:#333333"><p style=3D"Margin:0;mso-line-heig=
+ht-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;=
+line-height:27px;letter-spacing:0;color:#333333;font-size:18px"><span>TRANS=
+AKSI MENGGUNAKAN PIN</p></td>
+                         </tr>
+                         <tr class=3D"b" style=3D"border-collapse:collapse"=
+>
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">Pada Tanggal</td>
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px">:</td>
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px"><span>25-06-2026 19:32:45 WIB</td>
+                         </tr>
+                         <tr class=3D"b" style=3D"border-collapse:collapse"=
+>
+                          <td style=3D"padding:0;Margin:0;font-family:arial=
+, 'helvetica neue', helvetica, sans-serif;color:#333333;font-size:18px;line=
+-height:36px">Sejumlah</td>
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px">:</td>
+                          <td style=3D"padding:0;Margin:0;line-height:36px;=
+font-family:arial, 'helvetica neue', helvetica, sans-serif;color:#333333;fo=
+nt-size:18px"><span>Rp201.000,00</td>
+                         </tr>
+                       </table></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-right:20px;paddi=
+ng-left:20px;padding-bottom:5px;padding-top:10px">
+               <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td align=3D"center" valign=3D"top" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" class=3D"es-text-9257" style=3D"pa=
+dding:0;Margin:0"><p class=3D"d e" style=3D"Margin:0;mso-line-height-rule:e=
+xactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-heig=
+ht:27px;letter-spacing:0;color:#333333;font-size:18px">Selalu jaga keamanan=
+ fisik kartu dan data pribadi Anda seperti Nomor Kartu, Masa Berlaku Kartu,=
+ PIN, OTP, CVV/CVC, dll.</p></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-right:20px;paddi=
+ng-left:20px;padding-bottom:5px;padding-top:10px">
+               <table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td align=3D"center" valign=3D"top" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" class=3D"es-text-9535" style=3D"pa=
+dding:0;Margin:0"><p class=3D"d e" style=3D"Margin:0;mso-line-height-rule:e=
+xactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-heig=
+ht:27px;letter-spacing:0;color:#333333;font-size:18px">Jika kartu hilang da=
+n belum terblokir, transaksi yang terjadi adalah <strong> tanggung jawab Pe=
+megang Kartu.</strong> Info lanjut hubungi BCA via aplikasi haloBCA atau te=
+lepon 1500888.</p></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td bgcolor=3D"#ffffff" align=3D"left" class=3D"bi bj" style=
+=3D"Margin:0;padding-right:20px;padding-left:20px;padding-top:15px;padding-=
+bottom:10px;background-color:#ffffff">
+               <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td align=3D"center" valign=3D"top" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"left" style=3D"padding:0;Margin:0;font-s=
+ize:0px"><img src=3D"https://ahxnz.stripocdn.email/content/guids/CABINET_18=
+955afd30b83a1487f2d42d8e923ec2b8b11e23ed728f6f9f7f755a7a8d703e/images/image=
+.png" alt=3D"" height=3D"60" class=3D"img-6763" style=3D"display:block;font=
+-size:14px;border:0;outline:none;text-decoration:none" width=3D"221"></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+           </table></td>
+         </tr>
+       </table>
+       <table align=3D"center" cellpadding=3D"0" cellspacing=3D"0" class=3D=
+"o" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:coll=
+apse;border-spacing:0px;width:100%;table-layout:fixed !important;background=
+-color:transparent;background-repeat:repeat;background-position:center top"=
+>
+         <tr style=3D"border-collapse:collapse">
+          <td align=3D"center" style=3D"padding:0;Margin:0">
+           <table bgcolor=3D"#ffffff" align=3D"center" background=3D"https:=
+//ahxnz.stripocdn.email/content/guids/CABINET_20ca6fe2d7e618d22a43dabca29a7=
+08d/images/22081606878497381.jpg" cellspacing=3D"0" cellpadding=3D"0" class=
+=3D"be" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:=
+collapse;border-spacing:0px;background-color:#ffffff;background-repeat:no-r=
+epeat no-repeat;width:600px;background-position:left top;background-image:u=
+rl(https://ahxnz.stripocdn.email/content/guids/CABINET_20ca6fe2d7e618d22a43=
+dabca29a708d/images/22081606878497381.jpg)">
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-right:20px;paddi=
+ng-left:20px;padding-bottom:5px;padding-top:5px">
+               <table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td valign=3D"top" align=3D"center" style=3D"padding:0;Ma=
+rgin:0;width:560px">
+                   <table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"center" style=3D"padding:0;Margin:0;padd=
+ing-bottom:15px;padding-top:15px;font-size:0">
+                       <table cellspacing=3D"0" border=3D"0" width=3D"100%"=
+ height=3D"100%" cellpadding=3D"0" style=3D"mso-table-lspace:0pt;mso-table-=
+rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;background:unset;=
+height:0px;width:100%;margin:0px;border-bottom:1px solid #cccccc"></td>
+                         </tr>
+                       </table></td>
+                     </tr>
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"center" style=3D"padding:0;Margin:0"><p =
+style=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetic=
+a neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#666=
+666;font-size:14px">Notifikasi ini dikirim otomatis oleh sistem. Mohon tida=
+k membalas/me-reply email ini.</p></td>
+                     </tr>
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"center" style=3D"padding:0;Margin:0;padd=
+ing-bottom:15px;padding-top:15px;font-size:0">
+                       <table height=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0" width=3D"100%" style=3D"mso-table-lspace:0pt;mso-table-=
+rspace:0pt;border-collapse:collapse;border-spacing:0px">
+                         <tr style=3D"border-collapse:collapse">
+                          <td style=3D"padding:0;Margin:0;border-bottom:1px=
+ solid #cccccc;background:unset;height:0px;width:100%;margin:0px"></td>
+                         </tr>
+                       </table></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-top:0px;padding-=
+right:0px;padding-bottom:0px;padding-left:0px">
+               <table cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td valign=3D"top" align=3D"center" style=3D"padding:0;Ma=
+rgin:0;width:600px">
+                   <table width=3D"100%" cellspacing=3D"0" cellpadding=3D"0=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"center" style=3D"padding:0;Margin:0"><p =
+style=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helvetic=
+a neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#666=
+666;font-size:14px">Untuk pertanyaan dan informasi perbankan lainnya,</p><p=
+ style=3D"Margin:0;mso-line-height-rule:exactly;font-family:arial, 'helveti=
+ca neue', helvetica, sans-serif;line-height:21px;letter-spacing:0;color:#66=
+6666;font-size:14px">silakan menghubungi Halo BCA melalui aplikasi haloBCA =
+atau telepon di 1500888</p></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+             <tr style=3D"border-collapse:collapse">
+              <td align=3D"left" style=3D"Margin:0;padding-top:0px;padding-=
+right:0px;padding-bottom:0px;padding-left:0px">
+               <table cellspacing=3D"0" width=3D"100%" cellpadding=3D"0" st=
+yle=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;b=
+order-spacing:0px">
+                 <tr style=3D"border-collapse:collapse">
+                  <td align=3D"center" valign=3D"top" style=3D"padding:0;Ma=
+rgin:0;width:600px">
+                   <table cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+" style=3D"mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collap=
+se;border-spacing:0px">
+                     <tr style=3D"border-collapse:collapse">
+                      <td align=3D"center" style=3D"padding:0;Margin:0;padd=
+ing-bottom:10px;padding-top:25px;font-size:0px"><img alt=3D"" height=3D"10"=
+ src=3D"https://pustaka.bca.co.id/images/e-info-2024/20240529-image-disclai=
+mer-bca-ojk-bi-lps-2024-1-line-black.png" class=3D"adapt-img" style=3D"disp=
+lay:block;font-size:14px;border:0;outline:none;text-decoration:none" width=
+=3D"560"></td>
+                     </tr>
+                   </table></td>
+                 </tr>
+               </table></td>
+             </tr>
+           </table></td>
+         </tr>
+       </table></td>
+     </tr>
+   </table>
+  </div>
+ </body>
+</html>
+------=_Part_1516029_1654344631.1782390776845--
+
+------=_Part_1516030_78581807.1782390776845--
