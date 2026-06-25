@@ -1,6 +1,8 @@
 package email
 
 import (
+	"fmt"
+
 	"github.com/Hennnnnnn/expenseflow/internal/email/filter"
 	"github.com/Hennnnnnn/expenseflow/internal/email/imap"
 	"github.com/Hennnnnnn/expenseflow/internal/email/parser"
@@ -77,4 +79,16 @@ func (s *Service) ReadBCAEmails(limit int) ([]imap.Message, error) {
 	}
 
 	return result, nil
+}
+
+func (s *Service) Parse(message *imap.Message) (*parser.TransactionData, error) {
+
+	for _, p := range s.parsers {
+
+		if p.CanParse(message) {
+			return p.Parse(message)
+		}
+	}
+
+	return nil, fmt.Errorf("no parser found")
 }

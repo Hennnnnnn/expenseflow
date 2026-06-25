@@ -59,6 +59,14 @@ func main() {
 
 	messages, err := emailService.ReadBCAEmails(30)
 
+	data, err := emailService.Parse(&messages[0])
+
+	if err != nil {
+		log.Println(err)
+	} else {
+		log.Println(data)
+	}
+
 	if len(messages) > 0 {
 
 		body, err := emailService.ReadBody(messages[0].UID)

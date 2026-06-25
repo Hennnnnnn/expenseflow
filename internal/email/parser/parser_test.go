@@ -18,3 +18,16 @@ func TestCanParse(t *testing.T) {
 		t.Fatal("expected parser can parse BCA email")
 	}
 }
+
+func TestParserSelection(t *testing.T) {
+
+	p := NewBCAParser()
+
+	msg := &imap.Message{
+		From: "notification@bca.co.id",
+	}
+
+	if !p.CanParse(msg) {
+		t.Fatal("parser should accept BCA sender")
+	}
+}
