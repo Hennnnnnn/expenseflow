@@ -1,10 +1,10 @@
 package app
 
-import {
+import (
 	"log/slog"
 
 	"github.com/Hennnnnnn/expenseflow/internal/config"
-}
+)
 
 type App struct {
 	Config *config.Config

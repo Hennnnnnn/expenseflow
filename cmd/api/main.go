@@ -23,8 +23,8 @@ func main() {
 
 	_ = application
 
-	router := httptransport.NewRouter()
-
+	router := httptransport.NewRouter(logg)
+	
 	log.Println("🚀 ExpenseFlow API starting on :" + cfg.Port)
 
 	if err := http.ListenAndServe(":"+cfg.Port, router); err != nil {
