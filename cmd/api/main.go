@@ -3,13 +3,18 @@ package main
 import (
 	"log"
 	"net/http"
+	"time"
 
+	"github.com/Hennnnnnn/expenseflow/internal/ai"
+	"github.com/Hennnnnnn/expenseflow/internal/ai/openai"
+	"github.com/Hennnnnnn/expenseflow/internal/ai/pipeline"
 	"github.com/Hennnnnnn/expenseflow/internal/app"
 	"github.com/Hennnnnnn/expenseflow/internal/config"
 	"github.com/Hennnnnnn/expenseflow/internal/database"
 	"github.com/Hennnnnnn/expenseflow/internal/email"
 	"github.com/Hennnnnnn/expenseflow/internal/email/imap"
 	"github.com/Hennnnnnn/expenseflow/internal/logger"
+	"github.com/Hennnnnnn/expenseflow/internal/scheduler"
 	"github.com/Hennnnnnn/expenseflow/internal/service"
 	httptransport "github.com/Hennnnnnn/expenseflow/internal/transport/http"
 	"github.com/Hennnnnnn/expenseflow/internal/transport/http/handlers"
@@ -56,53 +61,50 @@ func main() {
 	defer imapClient.Close()
 
 	emailService := email.New(imapClient)
-	emailHandler := handlers.NewEmailHandler(emailService)
-
-	messages, err := emailService.ReadLatest(20)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	if len(messages) == 0 {
-		log.Println("No BCA transaction emails found.")
-	} else {
-		data, err := emailService.Parse(&messages[0])
-		if err != nil {
-			log.Println(err)
-		} else {
-			log.Printf("%+v\n", data)
-		}
-
-		body, err := emailService.ReadBody(messages[0].SeqNum)
-		if err != nil {
-			log.Fatal(err)
-		}
-
-		log.Println("==========================")
-		log.Println(body.TextBody)
-	}
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	log.Println("========== Latest Emails ==========")
-
-	for _, mail := range messages {
-		log.Printf(
-			"\nSubject : %s\nFrom    : %s\nDate    : %s\n",
-			mail.Subject,
-			mail.From,
-			mail.Date,
-		)
-	}
 
 	// ==========================
-	// HTTP
+	// Services
 	// ==========================
 
 	transactionService := service.NewTransactionService(db)
+
+	ruleEngine := ai.New()
+
+	log.Println(cfg.OpenAIAPIKey)
+
+	openAIProvider := openai.New(
+		cfg.OpenAIAPIKey,
+	)
+
+	pipelineService := pipeline.New(
+		ruleEngine,
+		openAIProvider,
+	)
+
+	syncService := email.NewSyncService(
+		emailService,
+		email.NewProcessor(),
+		transactionService,
+		pipelineService,
+	)
+
+	emailScheduler := scheduler.NewEmailScheduler(
+		syncService,
+		10*time.Second,
+	)
+
+	emailScheduler.Start()
+
+	// ==========================
+	// Handlers
+	// ==========================
+
 	transactionHandler := handlers.NewTransactionHandler(transactionService)
+	emailHandler := handlers.NewEmailHandler(syncService)
+
+	// ==========================
+	// Router
+	// ==========================
 
 	router := httptransport.NewRouter(
 		logg,

@@ -2,28 +2,58 @@ package handlers
 
 import (
 	"net/http"
+	"strconv"
 
 	"github.com/Hennnnnnn/expenseflow/internal/email"
+	"github.com/Hennnnnnn/expenseflow/internal/transport/http/response"
 )
 
 type EmailHandler struct {
-	service *email.Service
+	syncService *email.SyncService
 }
 
-func NewEmailHandler(service *email.Service) *EmailHandler {
+func NewEmailHandler(syncService *email.SyncService) *EmailHandler {
 	return &EmailHandler{
-		service: service,
+		syncService: syncService,
 	}
 }
 
-func (h *EmailHandler) Sync(w http.ResponseWriter, r *http.Request) {
+func (h *EmailHandler) Sync(
+	w http.ResponseWriter,
+	r *http.Request,
+) {
 
-	err := h.service.SyncLatest(20)
+	limit := 100
 
+	if value := r.URL.Query().Get("limit"); value != "" {
+
+		n, err := strconv.Atoi(value)
+		if err != nil {
+			response.Error(
+				w,
+				http.StatusBadRequest,
+				"Invalid limit parameter",
+			)
+			return
+		}
+
+		limit = n
+	}
+
+	result, err := h.syncService.SyncLatest(limit)
 	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
+		response.Error(
+			w,
+			http.StatusInternalServerError,
+			err.Error(),
+		)
 		return
 	}
 
-	w.Write([]byte("Email sync completed"))
+	response.Success(
+		w,
+		http.StatusOK,
+		"Email synchronization completed successfully",
+		result,
+	)
 }

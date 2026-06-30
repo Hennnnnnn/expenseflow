@@ -18,7 +18,7 @@ type Transaction struct {
 
 	Category string
 
-	Merchant string
+	Merchant string 
 
 	Description string
 

@@ -1,6 +1,7 @@
 package bca
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 	"time"
@@ -17,13 +18,25 @@ func (n *Normalizer) NormalizeAmount(value string) (float64, error) {
 
 	value = strings.TrimSpace(value)
 
+	if value == "" {
+		return 0, fmt.Errorf("amount is empty")
+	}
+
+	// sementara belum support foreign currency
+	if strings.HasPrefix(strings.ToUpper(value), "USD") {
+		return 0, fmt.Errorf("foreign currency is not supported")
+	}
+
 	value = strings.ReplaceAll(value, "Rp", "")
 	value = strings.ReplaceAll(value, ".", "")
 	value = strings.ReplaceAll(value, ",00", "")
 	value = strings.ReplaceAll(value, " ", "")
 
-	return strconv.ParseFloat(value, 64)
+	if value == "" {
+		return 0, fmt.Errorf("amount is empty after normalization")
+	}
 
+	return strconv.ParseFloat(value, 64)
 }
 
 func (n *Normalizer) NormalizeDate(value string) (time.Time, error) {
@@ -47,6 +60,7 @@ func (n *Normalizer) Normalize(raw *RawTransactionData) (*TransactionData, error
 	}
 
 	return &TransactionData{
+		CardNumber:      raw.CardNumber,
 		Merchant:        raw.Merchant,
 		TransactionType: raw.TransactionType,
 		TransactionDate: date,

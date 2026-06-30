@@ -29,6 +29,11 @@ func (s *Service) ParseFile(path string) (*TransactionData, error) {
 		return nil, err
 	}
 
+	return s.ParseBytes(data)
+}
+
+func (s *Service) ParseBytes(data []byte) (*TransactionData, error) {
+
 	entity, err := s.mime.Parse(data)
 	if err != nil {
 		return nil, err

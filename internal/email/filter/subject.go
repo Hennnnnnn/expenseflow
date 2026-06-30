@@ -13,6 +13,7 @@ func IsTransaction(subject string) bool {
 		"mutasi",
 		"pendebetan",
 		"bca",
+		"credit card",
 	}
 
 	for _, keyword := range keywords {

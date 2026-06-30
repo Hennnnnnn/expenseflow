@@ -14,16 +14,10 @@ func NewProcessor() *Processor {
 	}
 }
 
-func (p *Processor) ProcessFile(path string) error {
+func (p *Processor) ProcessFile(path string) (*bca.TransactionData, error) {
+	return p.parser.ParseFile(path)
+}
 
-	transaction, err := p.parser.ParseFile(path)
-
-	if err != nil {
-		return err
-	}
-
-	println("Merchant :", transaction.Merchant)
-	println("Amount   :", transaction.Amount)
-
-	return nil
+func (p *Processor) ProcessBytes(data []byte) (*bca.TransactionData, error) {
+	return p.parser.ParseBytes(data)
 }

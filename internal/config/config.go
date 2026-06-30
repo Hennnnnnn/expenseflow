@@ -8,9 +8,10 @@ import (
 
 type Config struct {
 	// Application
-	AppName string
-	Env     string
-	Port    string
+	AppName      string
+	Env          string
+	Port         string
+	OpenAIAPIKey string
 
 	// IMAP
 	IMAPHost     string
@@ -24,9 +25,10 @@ func Load() *Config {
 
 	return &Config{
 		// Application
-		AppName: getEnv("APP_NAME", "ExpenseFlow"),
-		Env:     getEnv("ENV", "development"),
-		Port:    getEnv("PORT", "8080"),
+		AppName:      getEnv("APP_NAME", "ExpenseFlow"),
+		Env:          getEnv("ENV", "development"),
+		Port:         getEnv("PORT", "8080"),
+		OpenAIAPIKey: getEnv("OPENAI_API_KEY", ""),
 
 		// IMAP
 		IMAPHost:     getEnv("IMAP_HOST", "imap.gmail.com"),

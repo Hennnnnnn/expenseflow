@@ -1,0 +1,554 @@
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+T - Notifikasi Transaksi Kartu Kredit - Berhasil (Apr 25)
+
+  
+.rollover:hover .rollover-first {
+  max-height:0px!important;
+  display:none!important;
+}
+.rollover:hover .rollover-second {
+  max-height:none!important;
+  display:block!important;
+}
+.rollover span {
+  font-size:0px;
+}
+u + .body img ~ div div {
+  display:none;
+}
+#outlook a {
+  padding:0;
+}
+span.MsoHyperlink,
+span.MsoHyperlinkFollowed {
+  color:inherit;
+  mso-style-priority:99;
+}
+a.t {
+  mso-style-priority:100!important;
+  text-decoration:none!important;
+}
+a[x-apple-data-detectors],
+#MessageViewBody a {
+  color:inherit!important;
+  text-decoration:none!important;
+  font-size:inherit!important;
+  font-family:inherit!important;
+  font-weight:inherit!important;
+  line-height:inherit!important;
+}
+.j {
+  display:none;
+  float:left;
+  overflow:hidden;
+  width:0;
+  max-height:0;
+  line-height:0;
+  mso-hide:all;
+}
+.x:hover {
+  border-color:#23c8fe #23c8fe #23c8fe #23c8fe!important;
+  background:#23c8fe!important;
+}
+.x:hover a.t,
+.x:hover button.t {
+  background:#23c8fe!important;
+}
+@media only screen and (max-width:600px) {.bj { padding-top:10px!important } .bi { padding-bottom:0px!important }  *[class="gmail-fix"] { display:none!important } p, a { line-height:150%!important } h1, h1 a { line-height:120%!important } h2, h2 a { line-height:120%!important } h3, h3 a { line-height:120%!important } h4, h4 a { line-height:120%!important } h5, h5 a { line-height:120%!important } h6, h6 a { line-height:120%!important }  .bf p { } .be p { }  h1 { font-size:14px!important; text-align:center } h2 { font-size:14px!important; text-align:center } h3 { font-size:14px!important; text-align:center } h4 { font-size:24px!important; text-align:left } h5 { font-size:20px!important; text-align:left } h6 { font-size:16px!important; text-align:left }         .bf p, .bf a { font-size:14px!important } .be p, .be a { font-size:12px!important }       .z .rollover:hover .rollover-second, .ba .rollover:hover .rollover-second, .bb .rollover:hover .rollover-second { display:inline!important }        .m table, .n table, .o table, .m, .o, .n { width:100%!important; max-width:600px!important } .adapt-img { width:100%!important; height:auto!important }        .h-auto { height:auto!important } .img-6763 { height:40px!important }  .c .d.e, .c .d.e * { font-size:14px!important; line-height:150%!important } .f .d.e, .f .d.e * { font-size:14px!important; line-height:150%!important }  .c .b, .c .b * { font-size:18px!important; line-height:150%!important } .a .b, .a .b * { font-size:18px!important; line-height:150%!important } }
+@media screen and (max-width:384px) {.mail-message-content { width:414px!important } }
+
+ 
+
+ 
+
+  
+
+   
+
+     
+
+      
+
+       
+
+         
+
+          
+
+           
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+           
+
+         
+
+       
+
+       
+
+         
+
+          
+
+           
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+Yth. Pemegang Kartu Kredit BCA,
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+Terima kasih telah bertransaksi menggunakan Kartu Kredit BCA:
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+
+                       
+
+                         
+
+                          
+Nomor Customer
+
+                          
+: 
+
+                          
+0000000023454476
+
+                         
+
+                         
+
+                          
+Nomor Kartu
+
+                          
+: 
+
+                          
+540912XXXX7640
+
+                         
+
+                         
+
+                          
+Merchant / ATM
+
+                          
+: 
+
+                          
+UKI MATCHA PURI
+
+                         
+
+                         
+
+                          
+Jenis Transaksi
+
+                          
+: 
+
+                          
+DOMESTIK
+
+                         
+
+                         
+
+                          
+Otentikasi
+
+                          
+: 
+
+                          
+TRANSAKSI MENGGUNAKAN PIN
+
+                         
+
+                         
+
+                          
+Pada Tanggal
+
+                          
+:
+
+                          
+25-06-2026 19:32:45 WIB
+
+                         
+
+                         
+
+                          
+Sejumlah
+
+                          
+:
+
+                          
+Rp201.000,00
+
+                         
+
+                       
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+Selalu jaga keamanan fisik kartu dan data pribadi Anda seperti Nomor Kartu, Masa Berlaku Kartu, PIN, OTP, CVV/CVC, dll.
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+Jika kartu hilang dan belum terblokir, transaksi yang terjadi adalah 
+ tanggung jawab Pemegang Kartu.
+ Info lanjut hubungi BCA via aplikasi haloBCA atau telepon 1500888.
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+           
+
+         
+
+       
+
+       
+
+         
+
+          
+
+           
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+
+                       
+
+                         
+
+                          
+
+                         
+
+                       
+
+                     
+
+                     
+
+                      
+Notifikasi ini dikirim otomatis oleh sistem. Mohon tidak membalas/me-reply email ini.
+
+                     
+
+                     
+
+                      
+
+                       
+
+                         
+
+                          
+
+                         
+
+                       
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+Untuk pertanyaan dan informasi perbankan lainnya,
+silakan menghubungi Halo BCA melalui aplikasi haloBCA atau telepon di 1500888
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+             
+
+              
+
+               
+
+                 
+
+                  
+
+                   
+
+                     
+
+                      
+
+                     
+
+                   
+
+                 
+
+               
+
+             
+
+           
+
+         
+
+       
+
+     
+
+   
+
+  
+
+ 
+

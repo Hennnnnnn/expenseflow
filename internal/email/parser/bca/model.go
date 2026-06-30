@@ -25,4 +25,5 @@ type RawTransactionData struct {
 	TransactionType string
 	TransactionDate string
 	Amount          string
+	ReferenceNumber string
 }
